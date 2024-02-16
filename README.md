@@ -11,4 +11,7 @@ To run the project properly, the user should follow these steps and commands:
 	```POSTGRES_USER=<username>
 	   POSTGRES_PASSWORD=<passwork>
 	   POSTGRES_DB=<database_name>```
-  3. 
+  3. Run the command ```docker-compose -f docker-compose.prod.yml up -d --build``` to build and start the services in the ```docker-compose.prod.yml``` file
+  4. Run the command ```docker-compose -f docker-compose.prod.yml exec web python manage.py create_db``` to create the Postgres database
+  5. Navigate to [http://localhost:1337/uploads](http://localhost:1337/uploads) to upload an image, and [http://localhost:1337/media/IMAGE_FILE_NAME](http://localhost:1337/media/IMAGE_FILE_NAME) to view the image
+     
