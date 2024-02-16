@@ -7,4 +7,8 @@ This repository creates a web app that allows users to upload and view media fil
 ## Instructions
 To run the project properly, the user should follow these steps and commands:
   1. (After downloading the files in this repository) Ensure that you are in the root folder of the project with the ```cd``` command
-  2. Create a file in the root folder called ```
+  2. Create a file in the root folder with the command ```vim .env.prod.db``` to define user-specific environment variables. The file should contain the following lines:
+	```POSTGRES_USER=<username>
+	   POSTGRES_PASSWORD=<passwork>
+	   POSTGRES_DB=<database_name>```
+  3. 
