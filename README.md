@@ -7,7 +7,7 @@ This repository creates a web app that allows users to upload and view media fil
 ## Instructions
 ### Development
 To run the development services of this project properly, the user should follow these steps and commands:
-  1. From the root folder, run the command
+  1. From the root folder, run the following command to build and start your server
    ```
 	$ docker-compose up -d --build
    ```
@@ -31,12 +31,10 @@ To run the development services of this project properly, the user should follow
 	yo yo yo!
   ```
   6. Navigate to [http://localhost:5111/uploads](http://localhost:5111/uploads) to upload an image, and [http://localhost:5111/media/IMAGE_FILE_NAME](http://localhost:5111/media/IMAGE_FILE_NAME) to view the image. 
-  7. Run the command
+  7. Run the following command to shut down the development server.
    ```
 	$ docker-compose down -v
    ```
-    to shutdown the servers.
-
 
 ### Production
 To run the production services of this project properly, the user should follow these steps and commands:
