@@ -33,16 +33,34 @@ To run the development services of this project properly, the user should follow
   6. Navigate to [http://localhost:5111/uploads](http://localhost:5111/uploads) to upload an image, and [http://localhost:5111/media/IMAGE_FILE_NAME](http://localhost:5111/media/IMAGE_FILE_NAME) to view the image. 
   7. Run the following command to shut down the development server.
    ```
-	$ docker-compose down -v
+	$ docker-compose down -v --remove-orphans
    ```
 
 ### Production
 To run the production services of this project properly, the user should follow these steps and commands:
-  1. Create a file in the root folder with the command ```vim .env.prod.db``` to define user-specific environment variables. The file should contain the following lines:
-	```POSTGRES_USER=<username>
-	   POSTGRES_PASSWORD=<passwork>
-	   POSTGRES_DB=<database_name>```
-  2. Run the command ```docker-compose -f docker-compose.prod.yml up -d --build``` to build and start the services in the ```docker-compose.prod.yml``` file
-  3. Run the command ```docker-compose -f docker-compose.prod.yml exec web python manage.py create_db``` to create the Postgres database
-  4. Navigate to [http://localhost:1337/uploads](http://localhost:1337/uploads) to upload an image, and [http://localhost:1337/media/IMAGE_FILE_NAME](http://localhost:1337/media/IMAGE_FILE_NAME) to view the image
-     
+  1. Run the following command to build and start the services from the ```docker-compose.prod.yml``` file
+```
+$ docker-compose -f docker-compose.prod.yml up -d --build
+```
+  3. Navigate to [http://localhost:1337](http://localhost:1337), the output should be
+```
+{"hello":"world"}
+```
+  3. Run the following commands to create and open the Postgres database
+```
+$ docker-compose -f docker-compose.prod.yml exec web python manage.py create_db
+$ docker-compose exec db psql --username=hello_flask --dbname=hello_flask_prod
+```
+  4. Exit out of the psql terminal environment with the command
+```
+hello_flask_prod=# \q
+```
+  5. Navigate to [http://localhost:1337/static/hello.txt](http://localhost:1337/static/hello.txt) to ensure that the static file development is running properly. The output should be
+```
+yo yo yo!
+```
+  6. Navigate to [http://localhost:1337/uploads](http://localhost:1337/uploads) to upload an image, and [http://localhost:1337/media/IMAGE_FILE_NAME](http://localhost:1337/media/IMAGE_FILE_NAME) to view the image
+  7. Run the following command to shut down the development server.
+```
+$ docker-compose down -v --remove-orphans
+```
