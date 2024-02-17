@@ -11,6 +11,31 @@ To run the development services of this project properly, the user should follow
    ```
 	$ docker-compose up -d --build
    ```
+  2. Navigate to [http://localhost:5111](http://localhost:5111). You can use the ```curl``` or ```links``` commands to accomplish this directly in the terminal, but it is also possible to use a web browser. The output should be text in JSON formatting, like this:
+  ```
+	{
+  		"hello": "world"
+	}
+  ```
+  3. Run the following commands to create and open a Postgres database
+  ```
+	$ docker-compose exec web python manage.py create_db
+	$ docker-compose exec db psql --username=hello_flask --dbname=hello_flask_dev
+  ```
+  4. Exit out of the psql terminal environment with the command
+  ```
+	hello_flask_dev=# \q
+  ```
+  5. Navigate to [http://localhost:5111/static/hello.txt](http://localhost:5111/static/hello.txt) to ensure that the static file development is running properly. The output should be
+  ```
+	yo yo yo!
+  ```
+  6. Navigate to [http://localhost:5111/uploads](http://localhost:5111/uploads) to upload an image, and [http://localhost:5111/media/IMAGE_FILE_NAME](http://localhost:5111/media/IMAGE_FILE_NAME) to view the image. 
+  7. Run the command
+   ```
+	$ docker-compose down -v
+   ```
+    to shutdown the servers.
 
 
 ### Production
