@@ -14,7 +14,7 @@ To run the development services of this project properly, the user should follow
   2. Navigate to [http://localhost:5111](http://localhost:5111). You can use the ```curl``` or ```links``` commands to accomplish this directly in the terminal, but it is also possible to use a web browser. The output should be text in JSON formatting, like this:
   ```
 {
-  "hello": "world"
+	"hello": "world"
 }
   ```
   3. Run the following commands to create and open a Postgres database
